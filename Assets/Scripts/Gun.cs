@@ -6,6 +6,9 @@ public class Gun : MonoBehaviour
 {
     public float fireRate;
     protected float lastFireTime;
+    public Ammo ammo;
+    public AudioClip liveFire;
+    public AudioClip dryFire;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,14 @@ public class Gun : MonoBehaviour
     
     protected void Fire()
     {
+        if(ammo.HasAmmo(tag))
+        {
+            GetComponent<AudioSource>().PlayOneShot(liveFire);
+        }
+        else
+        {
+            GetComponent<AudioSource>().PlayOneShot(dryFire);
+        }
         GetComponentInChildren<Animator>().Play("Fire");
     }
 }

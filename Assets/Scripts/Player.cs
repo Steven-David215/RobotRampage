@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     private void pickupHealth()
     {
         health += 50;
+        Debug.Log("Health is " + health);
         if (health > 200)
         {
             health = 200;

@@ -59,9 +59,10 @@ public class Ammo : MonoBehaviour
     {
         if (!tagToAmmo.ContainsKey(tag))
         {
-            Debug.LogError("Ubrecognized gun type passed: " + tag);
+            Debug.LogError("Unrecognized gun type passed: " + tag);
         }
         tagToAmmo[tag]--;
+        gameUI.SetAmmoText(tagToAmmo[tag]);
     }
 
 }

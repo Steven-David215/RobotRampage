@@ -40,12 +40,14 @@ public class Gun : MonoBehaviour
         if(ammo.HasAmmo(tag))
         {
             GetComponent<AudioSource>().PlayOneShot(liveFire);
+            ammo.ConsumeAmmo(tag);
+            GetComponentInChildren<Animator>().Play("Fire");
         }
         else
         {
             GetComponent<AudioSource>().PlayOneShot(dryFire);
         }
-        GetComponentInChildren<Animator>().Play("Fire");
+       
 
         //Ray casting
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));

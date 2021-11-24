@@ -72,7 +72,7 @@ public class GameUI : MonoBehaviour
     }
     public void SetScoreText(int score)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "" + score;
     }
     public void SetWaveText(int time)
     {
